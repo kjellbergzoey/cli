@@ -10,7 +10,7 @@ Kiqr is the deal: you stay in your theme repo, run one command, and a real WordP
 cd my-glorious-theme
 kiqr up
 # ☕ ...a few seconds later...
-# → http://my-glorious-theme.your-laptop.lvh.me:5477
+# → http://my-glorious-theme.lvh.me:5477
 ```
 
 That's the whole pitch. Keep reading and we'll prove it.
@@ -75,7 +75,7 @@ kiqr up
 
 First run in a fresh theme? Kiqr notices there's no project config yet, recognizes your theme, and offers to set everything up — no `init` ceremony required. When it's done you get:
 
-- 🌐 your site at `http://<theme>.<your-computer>.lvh.me:5477`
+- 🌐 your site at `http://<theme>.lvh.me:5477`
 - 🔐 a one-click auto-login to `/wp-admin`
 - 🗄️ phpMyAdmin, also one click
 - 💾 a database and uploads folder that survive restarts
@@ -234,7 +234,7 @@ Kiqr orchestrates WordPress, MariaDB, and phpMyAdmin in Docker containers, with 
 - **Database & uploads** live in your OS's application-data directory, keyed by `project_id`.
 - **Plugins** live in a local folder (`kiqr open plugins`).
 
-Each developer gets a hostname derived from their computer name (`<theme>.<computer>.lvh.me`), which always resolves to `127.0.0.1` — so there are zero port collisions even when the whole team is on the same Wi-Fi, and nobody touches `/etc/hosts`.
+Each project gets a clean hostname from its theme slug (`<theme>.lvh.me`), and `lvh.me` always resolves to `127.0.0.1` — so you get readable per-project URLs with zero `/etc/hosts` editing, and every developer hits their own local machine.
 
 The shared proxy + splash are bundled as **the kiqr agent** (see above): one persistent service the whole machine shares.
 
